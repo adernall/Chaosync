@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: chaosync
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install --prefix server && cd client && npm install && npm run build
+    startCommand: node server/src/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
